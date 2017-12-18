@@ -9,23 +9,24 @@
 unknown
 }
 \description{
-Datasets containing the wavelengths and tabulated values spectral emittance
+Names of datasets containing the wavelengths and tabulated values spectral emittance
 for different "generic" light emitting diodes (LEDs) without type
-specifications. Bought from shops like Class Ohlson or hobby targete
+specifications. Bought from shops like Class Ohlson or hobby targeted
 electronic suppliers. Absolute values are not meaningful as the measuring
 distances are variable, and in most cases unknown.
 }
-\details{
-The variables are as follows:
-\itemize{
-  \item w.length (nm)
-  \item s.e.irrad (W m-2 nm-1)
-}
-}
 \examples{
 unknown
-leds.mspct[unknown]
 
 }
+\seealso{
+Other manufacturers: \code{\link{hewlett_packard}},
+  \code{\link{huey_jann}}, \code{\link{led_engin}},
+  \code{\link{leds_global}}, \code{\link{lumitronix}},
+  \code{\link{marktech}}, \code{\link{nichia}},
+  \code{\link{norlux}}, \code{\link{osram}},
+  \code{\link{quantum_devices}},
+  \code{\link{roithner_laser}}, \code{\link{seti}},
+  \code{\link{tao_yuan}}
+}
 \keyword{datasets}
-

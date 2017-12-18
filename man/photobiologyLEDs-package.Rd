@@ -4,7 +4,7 @@
 \name{photobiologyLEDs-package}
 \alias{photobiologyLEDs}
 \alias{photobiologyLEDs-package}
-\title{Spectral Data for Light-Emitting-Diodes}
+\title{photobiologyLEDs: Spectral Data for Light-Emitting-Diodes}
 \description{
 Spectral emission data for some frequently used light emitting
 diodes.
@@ -12,9 +12,9 @@ diodes.
 \details{
 Data for emission spectra of different types of LEDs.
 
-The package contains one collection of spectra for different leds all of them
+The package contains one collection of spectra for different LEDSs all of them
 measured at room temperature and a series of vectors to be used as indexes to
-extract different subsets of spectra. These spectral data are normalized to
+extract different subsets of spectra. In many cases spectral data are normalized to
 spectral energy irradiance equal to one at the wavelength of maximum spectral
 energy irradiance (strongest emission peak).
 }
@@ -33,12 +33,59 @@ situations the data are in most cases reliable enough but perfect agreement
 with measurements on other LEDs of the same exact type should not be
 expected.
 }
+
 \examples{
 library(photobiology)
 library(photobiologyWavebands)
+library(ggspectra)
+
 names(leds.mspct)
+
 q_ratio(leds.mspct$white, Blue(), Red())
+
+peaks(leds.mspct$white, span = 101)
+
+plot(leds.mspct$white)
+
 q_ratio(leds.mspct$Q36_4000K, Blue(), Red())
 
+\dontrun{
+plot(leds.mspct$Q36_4000K)
 }
 
+q_ratio(leds.mspct$NS6L183AT_H1, Blue(), Red())
+
+\dontrun{
+plot(leds.mspct$NS6L183AT_H1)
+}
+
+\dontrun{
+plot(leds.mspct$NS6L183AT_H1, unit.out = "photon")
+}
+
+\dontrun{
+plot(leds.mspct$NS6L183AT_H1, 
+     range = VIS(), 
+     w.band = VIS_bands(),
+     span = 101)
+}
+
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://www.r4photobiology.info}
+  \item \url{https://bitbucket.org/aphalo/photobiologyleds}
+  \item Report bugs at \url{https://bitbucket.org/aphalo/photobiologyleds/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Pedro J. Aphalo \email{pedro.aphalo@helsinki.fi}
+
+Other contributors:
+\itemize{
+  \item Shafiuddin Ahmed [contributor]
+}
+
+}

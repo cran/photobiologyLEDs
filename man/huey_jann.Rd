@@ -9,17 +9,10 @@
 huey_jann
 }
 \description{
-Datasets containing the wavelengths and
+Names of datasets containing the wavelengths and
 tabulated values spectral emittance for different light emitting diodes (LEDs) arrays
 from Huey Jann Electronics Industry Co., Ltd. (Taiwan).
 Absolute values are not meaningful as the measuring distances are variable, and in most cases unknown.
-}
-\details{
-The variables are as follows:
-\itemize{
-  \item w.length (nm)  
-  \item s.e.irrad (W m-2 nm-1)
-}
 }
 \note{
 Huey Jann was a Taiwanese supplier of LED array. It is no longer in
@@ -27,8 +20,17 @@ business.
 }
 \examples{
 huey_jann
-leds.mspct[huey_jann]
 
 }
-\keyword{datasets}
+\seealso{
+\code{\link{leds.mspct}}
 
+Other manufacturers: \code{\link{hewlett_packard}},
+  \code{\link{led_engin}}, \code{\link{leds_global}},
+  \code{\link{lumitronix}}, \code{\link{marktech}},
+  \code{\link{nichia}}, \code{\link{norlux}},
+  \code{\link{osram}}, \code{\link{quantum_devices}},
+  \code{\link{roithner_laser}}, \code{\link{seti}},
+  \code{\link{tao_yuan}}, \code{\link{unknown}}
+}
+\keyword{datasets}

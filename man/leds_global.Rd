@@ -10,29 +10,32 @@
 leds_global
 }
 \description{
-Datasets containing the wavelengths and tabulated values spectral emittance
+Names of datasets containing the wavelengths and tabulated values spectral emittance
 for different light emitting diodes (LEDs) arrays from Shenzhen Weili Optical
 Ltd.  Data are normalized to one at the wavelength of maximum emission.
-}
-\details{
-The variables are as follows:
-\itemize{
-  \item w.length (nm)
-  \item s.e.irrad (W m-2 nm-1)
-}
 }
 \note{
 Leds Global and Shenzhen Weili are trade names of the same supplier of LED
 arrays. They sell both standard types and also assemble customized arrays
 upon request. Customized arrays may have up to five independent channels.
-
-\url{http://www.leds-global.com/}
 }
 \examples{
 shenzhen_weili
 leds_global
-leds.mspct[leds_global]
 
 }
-\keyword{datasets}
+\references{
+\url{http://www.leds-global.com/}
+}
+\seealso{
+\code{\link{leds.mspct}}
 
+Other manufacturers: \code{\link{hewlett_packard}},
+  \code{\link{huey_jann}}, \code{\link{led_engin}},
+  \code{\link{lumitronix}}, \code{\link{marktech}},
+  \code{\link{nichia}}, \code{\link{norlux}},
+  \code{\link{osram}}, \code{\link{quantum_devices}},
+  \code{\link{roithner_laser}}, \code{\link{seti}},
+  \code{\link{tao_yuan}}, \code{\link{unknown}}
+}
+\keyword{datasets}

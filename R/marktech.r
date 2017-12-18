@@ -1,7 +1,7 @@
-#' Spectral data for LEDs array supplied by Osram
+#' Spectral data for LEDs array supplied by Marktech
 #' 
 #' Names of datasets containing the wavelengths and tabulated values spectral emittance 
-#' for light emitting diodes (LEDs) from Osram. 
+#' for light emitting diodes (LEDs) from Marktech. 
 #' Data are normalized to one at the wavelength of maximum emission.
 #' 
 #' @docType data
@@ -9,14 +9,12 @@
 #' @format A vector of character strings.
 #' 
 #' @examples 
-#' osram
+#' marktech
 #' 
-#' @note Current trade name is Osram Opto Semiconductors
-#' 
-#' @references \url{http://www.osram-os.com/}
+#' @references \url{http://www.marktechopto.com/}
 #' 
 #' @seealso \code{\link{leds.mspct}}
 #' 
 #' @family manufacturers
 #' 
-"osram"
+"marktech"

@@ -2,41 +2,40 @@
 % Please edit documentation in R/colors.r
 \docType{data}
 \name{uv_leds}
+\alias{uv_leds}
 \alias{amber_leds}
 \alias{blue_leds}
 \alias{green_leds}
-\alias{multichannel_leds}
 \alias{red_leds}
-\alias{uv_leds}
 \alias{white_leds}
+\alias{cyan_leds}
+\alias{violet_leds}
+\alias{multichannel_leds}
 \title{Spectral data for LEDs of different colors}
 \format{A vector of character strings.}
 \usage{
 uv_leds
 }
 \description{
-Datasets containing the wavelengths and tabulated values spectral emittance 
-for the light emitting diodes (LEDs) from various suppliers. 
-Data are normalized to one at the wavelength of maximum emission.
-}
-\details{
-The variables are as follows:
-\itemize{
-  \item w.length (nm)  
-  \item s.e.irrad (W m-2 nm-1)
-}
+Names of datasets containing the wavelengths and tabulated values spectral emittance 
+for the light emitting diodes (LEDs) from various suppliers.
 }
 \examples{
 uv_leds
+violet_leds
 blue_leds
+cyan_leds
 green_leds
 amber_leds
 red_leds
 white_leds
 multichannel_leds
+
 # select LEDs emitting in the amber, yellow, orange region
 leds.mspct[amber_leds]
 
 }
+\seealso{
+\code{\link{leds.mspct}}
+}
 \keyword{datasets}
-

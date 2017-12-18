@@ -9,27 +9,31 @@
 lumitronix
 }
 \description{
-Dataset containing the wavelengths and tabulated values spectral emittance 
+Names of datasets containing the wavelengths and tabulated values spectral emittance 
 for a high power light emitting diode (LED) array from LUMITRONIX  based 
 NICHIA's high efficiency natural white SMT LEDs. Specifications: LUMITRONIX 
 SmartArray Q36 LED-Module, 4247 lm, 4000K, 39W electrical. Data are
 normalized to one at the wavelength of maximum emission.
 }
-\details{
-The variables are as follows: 
-\itemize{
-\item w.length (nm) 
-\item s.e.irrad  (W m-2 nm-1) 
-}
-}
 \note{
 Lumitronix is a supplier of LED arrays, and a distributor of LEDs.
-\url{http://www.leds.de/}
 }
 \examples{
 lumitronix
-leds.mspct[lumitronix]
 
 }
-\keyword{datasets}
+\references{
+\url{http://www.leds.de/}
+}
+\seealso{
+\code{\link{leds.mspct}}
 
+Other manufacturers: \code{\link{hewlett_packard}},
+  \code{\link{huey_jann}}, \code{\link{led_engin}},
+  \code{\link{leds_global}}, \code{\link{marktech}},
+  \code{\link{nichia}}, \code{\link{norlux}},
+  \code{\link{osram}}, \code{\link{quantum_devices}},
+  \code{\link{roithner_laser}}, \code{\link{seti}},
+  \code{\link{tao_yuan}}, \code{\link{unknown}}
+}
+\keyword{datasets}

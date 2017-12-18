@@ -9,25 +9,29 @@
 quantum_devices
 }
 \description{
-Datasets containing the wavelengths and tabulated values spectral emittance 
+Names of datasets containing the wavelengths and tabulated values spectral emittance 
 for light emitting diodes (LEDs) from Quantum Devices (USA). Data are
 normalized to one at the wavelength of maximum emission.
 }
-\details{
-The variables are as follows:
-\itemize{
-  \item w.length (nm)  
-  \item s.e.irrad (W m-2 nm-1)
-}
-}
 \note{
 Quantum Devices produces both individual LEDs and luminaires.
-\url{http://www.quantumdev.com/}
 }
 \examples{
 quantum_devices
-leds.mspct[quantum_devices]
 
 }
-\keyword{datasets}
+\references{
+\url{http://www.quantumdev.com/}
+}
+\seealso{
+\code{\link{leds.mspct}}
 
+Other manufacturers: \code{\link{hewlett_packard}},
+  \code{\link{huey_jann}}, \code{\link{led_engin}},
+  \code{\link{leds_global}}, \code{\link{lumitronix}},
+  \code{\link{marktech}}, \code{\link{nichia}},
+  \code{\link{norlux}}, \code{\link{osram}},
+  \code{\link{roithner_laser}}, \code{\link{seti}},
+  \code{\link{tao_yuan}}, \code{\link{unknown}}
+}
+\keyword{datasets}

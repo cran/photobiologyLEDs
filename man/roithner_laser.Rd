@@ -9,28 +9,32 @@
 roithner_laser
 }
 \description{
-Datasets containing the wavelengths and tabulated values for spectral
+Names of datasets containing the wavelengths and tabulated values for spectral
 emittance for different light emitting diodes (LEDs) and LED arrays supplied
 by Roithner Laser (Austria). Data are normalized to one at the wavelength of
 maximum emission.
-}
-\details{
-The variables are as follows:
-\itemize{
-  \item w.length (nm)
-  \item s.e.irrad (W m-2 nm-1)
-}
 }
 \note{
 Roithner LaserTechnik is a distributor and reseller of LEDs, LED arrays and
 lasers. They have a very extensive catalogue covering almost wavelengths for
 which LEDs are manufactured.
-\url{http://www.roithner-laser.com/}
 }
 \examples{
 roithner_laser
-leds.mspct[roithner_laser]
 
 }
-\keyword{datasets}
+\references{
+\url{http://www.roithner-laser.com/}
+}
+\seealso{
+\code{\link{leds.mspct}}
 
+Other manufacturers: \code{\link{hewlett_packard}},
+  \code{\link{huey_jann}}, \code{\link{led_engin}},
+  \code{\link{leds_global}}, \code{\link{lumitronix}},
+  \code{\link{marktech}}, \code{\link{nichia}},
+  \code{\link{norlux}}, \code{\link{osram}},
+  \code{\link{quantum_devices}}, \code{\link{seti}},
+  \code{\link{tao_yuan}}, \code{\link{unknown}}
+}
+\keyword{datasets}
