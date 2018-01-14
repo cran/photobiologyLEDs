@@ -1,6 +1,6 @@
-5a058663a0335f801f98f7e7dfec1efe *DESCRIPTION
+fe8326e3a35e5403c6d6321ef6c99943 *DESCRIPTION
 162e09d30e20a5313ca7ef6c584cf8a4 *NAMESPACE
-a5b1fff088dac9d949fa12b1d0c8185e *NEWS
+3e979b398d46e7e2276af7cfc445ba44 *NEWS
 49f693ff35b05c70d9ae46b25ed1f347 *R/colors.r
 006cf726dd29f24b05108e939d3f7200 *R/generic.r
 3f20d834bc8e54761ab2c10875ead07e *R/hewlett-packard.r
@@ -25,8 +25,8 @@ ff265663befa09c12ff1655fc1e4cc4a *build/vignette.rds
 56ca85ef9007df1b0ae788f0a8e3e8c1 *data/leds-mspct.rda
 365280ae9c64ac9b0673594406937ee0 *inst/CITATION
 b35607de151ab67ca132638dc9f830f3 *inst/doc/user-guide.R
-3dfe591f27a91ad0d27839e73c53267d *inst/doc/user-guide.Rmd
-3abb3e837ccdd4109973f62e42829d11 *inst/doc/user-guide.html
+99065903393d9e749a6c01400e1ce194 *inst/doc/user-guide.Rmd
+75ad355bf4d0d993821c3dc904b0a24e *inst/doc/user-guide.html
 f5e5c5605214597b614676d3f8ac06c6 *man/hewlett_packard.Rd
 a05a0c3d5e933e15b8218efb1b58e4cb *man/huey_jann.Rd
 8492afc8817a6132dad789324a846f7e *man/led_engin.Rd
@@ -38,11 +38,11 @@ b6a039da5eadb574b06569f37ddf8d0c *man/lumitronix.Rd
 8f79864ea46c260f8a5a714fe07b8afd *man/norlux.Rd
 7d13c4a9e6d3d50f9d5d22161b24a7d5 *man/oo_maya_leds.Rd
 b2c53b9a3063879cd781b0e8ab688f38 *man/osram.Rd
-6f5b6acf362e0fd6be0598d5ce483bd9 *man/photobiologyLEDs-package.Rd
+81f2312bd9714b2989939be30ce10bf1 *man/photobiologyLEDs-package.Rd
 2164a2511260617a90ab8e2042f53935 *man/quantum_devices.Rd
 59c7ae2c4614ea1643a458f47d84b1e4 *man/roithner_laser.Rd
 225e994079d719c13378e354ab45fcd8 *man/seti.Rd
 cebfcb731c95b5f3797af8bb11ea5d9e *man/tao_yuan.Rd
 5d62d511fe40d809907be6272dc83dbc *man/unknown.Rd
 c3916fa44af40109efeafd72fe1c0d9e *man/uv_leds.Rd
-3dfe591f27a91ad0d27839e73c53267d *vignettes/user-guide.Rmd
+99065903393d9e749a6c01400e1ce194 *vignettes/user-guide.Rmd
