@@ -1,65 +1,329 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <meta name="author" content="Pedro J. Aphalo" />
 
-<meta name="date" content="2018-01-14" />
+<meta name="date" content="2022-05-14" />
 
 <title>User Guide</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 
-
-<style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
 
-<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -69,516 +333,666 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <h1 class="title toc-ignore">User Guide</h1>
-<h3 class="subtitle"><em>Package ‘photobiologyLEDs’ 0.4.3.1</em></h3>
-<h4 class="author"><em>Pedro J. Aphalo</em></h4>
-<h4 class="date"><em>2018-01-14</em></h4>
+<h3 class="subtitle">Package ‘photobiologyLEDs’ 0.5.0</h3>
+<h4 class="author">Pedro J. Aphalo</h4>
+<h4 class="date">2022-05-14</h4>
 
 
 <div id="TOC">
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#the-data">The data</a></li>
-<li><a href="#accessing-individual-spectra">Accessing individual spectra</a></li>
-<li><a href="#accessing-subsets-of-spectra">Accessing subsets of spectra</a></li>
+<li><a href="#accessing-individual-spectra">Accessing individual
+spectra</a></li>
+<li><a href="#accessing-subsets-of-spectra">Accessing subsets of
+spectra</a></li>
 <li><a href="#querying-metadata">Querying metadata</a></li>
-<li><a href="#calculating-summaries-from-the-normalized-data">Calculating summaries from the normalized data</a></li>
+<li><a href="#calculating-summaries-from-the-normalized-data">Calculating
+summaries from the normalized data</a></li>
 <li><a href="#plotting">Plotting</a></li>
-<li><a href="#using-the-data-in-other-contexts">Using the data in other contexts</a></li>
-<li><a href="#the-r4photobiology-suite">The R4Photobiology suite</a></li>
+<li><a href="#using-the-data-in-other-contexts">Using the data in other
+contexts</a></li>
 </ul>
 </div>
 
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">fig.width=</span><span class="dv">8</span>, <span class="dt">fig.height=</span><span class="dv">4</span>)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(photobiology)</code></pre></div>
-<pre><code>## For news about 'photobiology', please, see http://www.r4photobiology.info/</code></pre>
-<pre><code>## For on-line documentation see http://docs.r4photobiology.info/photobiology/</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(photobiologyWavebands)</code></pre></div>
-<pre><code>## For news about 'photobiologyWavebands', please, see http://www.r4photobiology.info/</code></pre>
-<pre><code>## For on-line documentation see http://docs.r4photobiology.info/photobiologyWavebands/</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(photobiologyLEDs)</code></pre></div>
-<pre><code>## For news about 'photobiologyLEDs', please, see http:/www.r4photobiology.info/</code></pre>
-<pre><code>## For on-line documentation see http:/docs.r4photobiology.info/photobiologyLEDs/</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(ggspectra)</code></pre></div>
-<pre><code>## For news about 'ggspectra', please, see http://www.r4photobiology.info/</code></pre>
-<pre><code>## For on-line documentation see http://docs.r4photobiology.info/ggspectra/</code></pre>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>In this very brief User Guide we describe how to re-scale the normalized spectra, and how to access individual spectra or subsets of spectra.</p>
+<p>This package, is a data only package, part of a suite, which has
+package ‘photobiology’ at its core. Please visit (<a href="https://www.r4photobiology.info/" class="uri">https://www.r4photobiology.info/</a>) for more details. For
+more details on plotting spectra, please consult the documentation for
+package ‘ggspectra’, and for information on the calculation of summaries
+and maths operations between spectra, please, consult the documentation
+for package ‘photobiology’.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(photobiology)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(photobiologyLEDs)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Are the packages used in examples installed?</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>eval_bands <span class="ot">&lt;-</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;photobiologyWavebands&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (eval_bands) <span class="fu">library</span>(photobiologyWavebands)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>eval_plots <span class="ot">&lt;-</span> eval_bands <span class="sc">&amp;&amp;</span> <span class="fu">requireNamespace</span>(<span class="st">&quot;ggspectra&quot;</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (eval_plots) <span class="fu">library</span>(ggspectra)</span></code></pre></div>
+<p>In this brief User Guide we describe how to re-scale the normalized
+spectra, and how to access individual spectra or subsets of spectra.</p>
 </div>
 <div id="the-data" class="section level2">
 <h2>The data</h2>
-<p>The spectral data have been acquired mostly with one instrument, an array spectrometer. However, some spectra haver been measured with another spectrometers that has lower wavelength resolution. This difference in resolution and slit function can give, for the same LED, measured peaks of slightly different width. This is an inevitable artefact of spectral measurements, but as LEDs have relatively wide peaks the distortion is small. With well calibrated spectrometers, the area under a peak should not be affected by the difference in wavelength resolution.</p>
-<p>All the spectral data in this package are stored in a single R object, a collection of spectra of class <code>source_spct</code>. Individual or subsets of spectra can be retrieved by <em>name</em>. The package includes also several <code>character</code> vectors of <em>names</em>, each one containing names for LEDs of a given <em>color</em> or from a given <em>manufacturer</em>. These are listed in the help index for the package. The <em>names</em> used are in most cases the codes used by the manufacturers for the given type. Any dashes in these codes have been replaced by underscores.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">blue_leds</code></pre></div>
-<pre><code>## [1] &quot;NHXRGB090_B&quot;     &quot;LED435_66_60&quot;    &quot;weili430nm&quot;      &quot;LZ1_10UA00_00U8&quot;
-## [5] &quot;LZ1_10DB00&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">led_engin</code></pre></div>
-<pre><code>## [1] &quot;LZ1_10UV00&quot;    &quot;LZ1_10UA00_U4&quot; &quot;LZ1_10UA00_U8&quot; &quot;LZ1_10DB00&quot;   
-## [5] &quot;LZ1_10R302&quot;    &quot;LZ4_10R208&quot;</code></pre>
+<p>The spectral data have been acquired mostly with one instrument, an
+array spectrometer. However, some spectra have been measured with
+another spectrometer that has lower wavelength resolution. This
+difference in resolution and slit function can give, for the same LED,
+measured peaks of slightly different width. This is an inevitable
+artefact of spectral measurements, but as LEDs have relatively wide
+peaks the distortion is small. With well calibrated spectrometers, the
+area under a peak should not be affected by the difference in wavelength
+resolution.</p>
+<p>The spectral data in this package are stored in three R objects, each
+of them a collection of spectra of class <code>source_spct</code>. Most
+of the spectra are in data object <code>leds.mspct</code>. Data object
+<code>COB_reflectors.mspct</code> contains spectra for a single COB LED
+combined with different reflectors while data object
+<code>COB_dimming.mspct</code> contains a collection of spectra from the
+same LED when driven at different currents.</p>
+<p>Individual or subsets of spectra can be retrieved by <em>name</em>.
+The package includes also several <code>character</code> vectors of
+<em>names</em>, each one containing names for LEDs of a given
+<em>color</em>, from a given <em>manufacturer</em> or intended mainly
+for a specific use. These are listed in the help index for the package.
+The <em>names</em> used are in most cases the codes used by the
+manufacturers for the given type. Any dashes in these codes have been
+replaced by underscores.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>blue_leds</span></code></pre></div>
+<pre><code>##  [1] &quot;Agilent_HLMB_CB30&quot;         &quot;Agilent_HLMB_CD31&quot;        
+##  [3] &quot;Agilent_HLMP_CB31&quot;         &quot;Epileds_3W_460nm&quot;         
+##  [5] &quot;Epileds_3W_470nm&quot;          &quot;Epileds_3W_495nm&quot;         
+##  [7] &quot;HueyJann_HPR40E_48K30BG&quot;   &quot;HueyJann_HPR40E_48K30BI&quot;  
+##  [9] &quot;LedEngin_LZ1_10DB00_460nm&quot; &quot;Roithner_CB30&quot;            
+## [11] &quot;Weili_3W.nominal.500nm&quot;</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>LedEngin_leds</span></code></pre></div>
+<pre><code>##  [1] &quot;LedEngin_LZ1_10UV00_365nm&quot;             
+##  [2] &quot;LedEngin_LZ1_10DB00_460nm&quot;             
+##  [3] &quot;LedEngin_LZ4_40R208_660nm&quot;             
+##  [4] &quot;LedEngin_LZ1_10R302_740nm&quot;             
+##  [5] &quot;LedEngin_LZ1_10R602_850nm&quot;             
+##  [6] &quot;LedEngin_LZ1_10UB00_00U4_385nm&quot;        
+##  [7] &quot;LedEngin_LZ1_10UB00_00U8_405nm&quot;        
+##  [8] &quot;LedEngin_LZ7_N4M100&quot;                   
+##  [9] &quot;LedEngin_LZ7_N4M100_ch_A_Green&quot;        
+## [10] &quot;LedEngin_LZ7_N4M100_ch_B_Red&quot;          
+## [11] &quot;LedEngin_LZ7_N4M100_ch_C_Blue&quot;         
+## [12] &quot;LedEngin_LZ7_N4M100_ch_D_UV&quot;           
+## [13] &quot;LedEngin_LZ7_N4M100_ch_E_CW_Cool_white&quot;
+## [14] &quot;LedEngin_LZ7_N4M100_ch_F_PC_Amber&quot;     
+## [15] &quot;LedEngin_LZ7_N4M100_ch_G_Cyan&quot;</code></pre>
 </div>
 <div id="accessing-individual-spectra" class="section level2">
 <h2>Accessing individual spectra</h2>
-<p>The <code>source_spct</code> member objects in <code>leds.mspct</code> can be accessed through their names or through a numeric index. As the numeric indexes are likely to change with updates to the package, their use is discouraged. Names as character strings should be used instead. The names are listed in the documentation and also available through the “Data Catalogue” vignette. They can also be listed with method <code>names()</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(leds.mspct)</code></pre></div>
-<pre><code>##  [1] &quot;BS436&quot;           &quot;CB30&quot;            &quot;LED405&quot;         
-##  [4] &quot;LED740&quot;          &quot;UV395&quot;           &quot;XSL365&quot;         
-##  [7] &quot;XSL370&quot;          &quot;XSL375&quot;          &quot;UVMAX340&quot;       
-## [10] &quot;UVMAX305&quot;        &quot;TY_UV310nm&quot;      &quot;white&quot;          
-## [13] &quot;Q36_4000K&quot;       &quot;G_P30R140A1_XT&quot;  &quot;weili430nm&quot;     
-## [16] &quot;weili540nm&quot;      &quot;weili665nm&quot;      &quot;weili740nm&quot;     
-## [19] &quot;HPR40E_48K30BG&quot;  &quot;NHXRGB090_R&quot;     &quot;NHXRGB090_G&quot;    
-## [22] &quot;NHXRGB090_B&quot;     &quot;NHXRGB090&quot;       &quot;B5_436_30D&quot;     
-## [25] &quot;FR_OLD&quot;          &quot;HLMB_CB30&quot;       &quot;HLMB_CD31_take2&quot;
-## [28] &quot;HLMP_CB31&quot;       &quot;HLMP_CM30&quot;       &quot;HLMP_CM31&quot;      
-## [31] &quot;HLMP_DJ32&quot;       &quot;HLMP_DL32&quot;       &quot;LED435_66_60&quot;   
-## [34] &quot;LED740_01AV&quot;     &quot;LY5436&quot;          &quot;QDDH66002&quot;      
-## [37] &quot;QDDH68002&quot;       &quot;QDDH70002&quot;       &quot;QDDH73502&quot;      
-## [40] &quot;LZ1_10UV00&quot;      &quot;LZ1_10UA00_U4&quot;   &quot;LZ1_10UA00_U8&quot;  
-## [43] &quot;LZ1_10DB00&quot;      &quot;LZ1_10R302&quot;      &quot;LZ4_10R208&quot;     
-## [46] &quot;NS6L183AT_H1&quot;    &quot;G_P3V140B1_G&quot;    &quot;G_P3V140B1_GT&quot;  
-## [49] &quot;G_P3V140A1_YG&quot;   &quot;G_P3V140A1_YG1&quot;  &quot;MTSM340UV_F5120&quot;</code></pre>
-<p>We can use a character string as index to extract an individual <code>source_spct</code> object.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leds.mspct<span class="op">$</span>UV395</code></pre></div>
-<pre><code>## Object: source_spct [1,425 x 2]
-## Wavelength range 250.05 to 899.78 nm, step 0.43 to 0.48 nm 
-## Label: Measured with spectrometer: MAYP11278 on 2012-05-16 13:47:49
-## processed on 2015-09-06 with MayaCalc ver 3.2.2
-## using HDR: FALSE, using NR: FALSE, method: full
-## calibration dated (automatic): 2012-03-26
-## number of scans, short: 3, long: 0
-## integration times, short (s): 1, long (s): NA
-## total measurement time, short (s): 3, long: NA
-## max counts, short: 49951 out of 65000 (77%): signal O.K. 
+<p>The <code>source_spct</code> member objects in
+<code>leds.mspct</code> can be accessed through their names or through a
+numeric index. As the numeric indexes are likely to change with updates
+to the package, their use is discouraged. Names as character strings
+should be used instead. The names are listed in the documentation and
+also available through the “Data Catalogue” vignette. They can also be
+listed with method <code>names()</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COB_reflectors.mspct)</span></code></pre></div>
+<pre><code>## [1] &quot;Rfl.15deg&quot; &quot;Rfl.25deg&quot; &quot;Rfl.35deg&quot; &quot;Rfl.None&quot;</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(COB_dimming.mspct)</span></code></pre></div>
+<pre><code>## [1] &quot;CC.350mA&quot; &quot;CC.344mA&quot; &quot;CC.266mA&quot; &quot;CC.140mA&quot; &quot;CC.070mA&quot; &quot;CC.035mA&quot; &quot;CC.017mA&quot;
+## [8] &quot;CC.011mA&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(leds.mspct)</span></code></pre></div>
+<pre><code>##  [1] &quot;Agilent_HLMB_CB30&quot;                          
+##  [2] &quot;Agilent_HLMB_CD31&quot;                          
+##  [3] &quot;Agilent_HLMP_CB31&quot;                          
+##  [4] &quot;Agilent_HLMP_CM30&quot;                          
+##  [5] &quot;Agilent_HLMP_CM31&quot;                          
+##  [6] &quot;Agilent_HLMP_DJ32&quot;                          
+##  [7] &quot;Agilent_HLMP_DL32&quot;                          
+##  [8] &quot;Bridgelux_3W_455nm&quot;                         
+##  [9] &quot;Bridgelux_BXRE_50S2001_c_73&quot;                
+## [10] &quot;CREE_XPE_480nm&quot;                             
+## [11] &quot;Epileds_3W_410nm&quot;                           
+## [12] &quot;Epileds_3W_420nm&quot;                           
+## [13] &quot;Epileds_3W_430nm&quot;                           
+## [14] &quot;Epileds_3W_445nm&quot;                           
+## [15] &quot;Epileds_3W_460nm&quot;                           
+## [16] &quot;Epileds_3W_470nm&quot;                           
+## [17] &quot;Epileds_3W_495nm&quot;                           
+## [18] &quot;Epileds_3W_520nm&quot;                           
+## [19] &quot;Epileds_3W_560nm&quot;                           
+## [20] &quot;Epileds_3W_590nm&quot;                           
+## [21] &quot;Epileds_3W_600nm&quot;                           
+## [22] &quot;Epileds_3W_620nm&quot;                           
+## [23] &quot;Epistar_3W_Plant_Grow_LED&quot;                  
+## [24] &quot;HueyJann_HPR40E_48K30BG&quot;                    
+## [25] &quot;HueyJann_HPR40E_48K30BI&quot;                    
+## [26] &quot;LCFOCUS_LC_10FS504_G24&quot;                     
+## [27] &quot;LCFOCUS_LC_10FSCOB1411_2700&quot;                
+## [28] &quot;LCFOCUS_LC_10FSCOB1411_6000&quot;                
+## [29] &quot;LCFOCUS_LC_10FSCOB1917_4000&quot;                
+## [30] &quot;LedEngin_LZ1_10DB00_460nm&quot;                  
+## [31] &quot;LedEngin_LZ1_10R302_740nm&quot;                  
+## [32] &quot;LedEngin_LZ1_10R602_850nm&quot;                  
+## [33] &quot;LedEngin_LZ1_10UB00_00U4_385nm&quot;             
+## [34] &quot;LedEngin_LZ1_10UB00_00U8_405nm&quot;             
+## [35] &quot;LedEngin_LZ1_10UV00_365nm&quot;                  
+## [36] &quot;LedEngin_LZ4_40R208_660nm&quot;                  
+## [37] &quot;LedEngin_LZ7_N4M100&quot;                        
+## [38] &quot;LedEngin_LZ7_N4M100_ch_A_Green&quot;             
+## [39] &quot;LedEngin_LZ7_N4M100_ch_B_Red&quot;               
+## [40] &quot;LedEngin_LZ7_N4M100_ch_C_Blue&quot;              
+## [41] &quot;LedEngin_LZ7_N4M100_ch_D_UV&quot;                
+## [42] &quot;LedEngin_LZ7_N4M100_ch_E_CW_Cool_white&quot;     
+## [43] &quot;LedEngin_LZ7_N4M100_ch_F_PC_Amber&quot;          
+## [44] &quot;LedEngin_LZ7_N4M100_ch_G_Cyan&quot;              
+## [45] &quot;Ledguhon_10WBVG14G24_Y6C_T4&quot;                
+## [46] &quot;Ledguhon_10WBVGIR14G24_Y6C_T4&quot;              
+## [47] &quot;Luminus_CXM_14_HS_12_36_AC30&quot;               
+## [48] &quot;Marktech_MTSM340UV_F5120_340nm&quot;             
+## [49] &quot;Nichia_NF2W757GT_F1_sm505_Rfc00&quot;            
+## [50] &quot;Nichia_NFCWL036B_V3_Rfcb0&quot;                  
+## [51] &quot;Nichia_NFSL757GT_Rsp0a&quot;                     
+## [52] &quot;Nichia_NFSW757G_Rsp0a&quot;                      
+## [53] &quot;Nichia_NS6L183AT_H1_sw&quot;                     
+## [54] &quot;Nichia_NVSU119C_U385&quot;                       
+## [55] &quot;Nichia_NVSU233B_U365&quot;                       
+## [56] &quot;Nichia_unknown_757&quot;                         
+## [57] &quot;Norlux_NHXRGB090S00S_blue&quot;                  
+## [58] &quot;Norlux_NHXRGB090S00S_green&quot;                 
+## [59] &quot;Norlux_NHXRGB090S00S_red&quot;                   
+## [60] &quot;Norlux_NHXRGB090S00S_RGB&quot;                   
+## [61] &quot;Osram_GF_CSHPM2.24_2T4T_1&quot;                  
+## [62] &quot;Osram_GW_CSSRM3.HW&quot;                         
+## [63] &quot;Osram_LY5436&quot;                               
+## [64] &quot;QuantumDevices_QDDH66002&quot;                   
+## [65] &quot;QuantumDevices_QDDH68002&quot;                   
+## [66] &quot;QuantumDevices_QDDH70002&quot;                   
+## [67] &quot;QuantumDevices_QDDH73502&quot;                   
+## [68] &quot;Roithner_BS436&quot;                             
+## [69] &quot;Roithner_CB30&quot;                              
+## [70] &quot;Roithner_DUV289_SD353EL&quot;                    
+## [71] &quot;Roithner_DUV310_SD353EL&quot;                    
+## [72] &quot;Roithner_DUV325_SD353EL&quot;                    
+## [73] &quot;Roithner_DUV340_SD353EL&quot;                    
+## [74] &quot;Roithner_LED405&quot;                            
+## [75] &quot;Roithner_LED740&quot;                            
+## [76] &quot;Roithner_SMB1N_BB450&quot;                       
+## [77] &quot;Roithner_UV395&quot;                             
+## [78] &quot;Roithner_UVMAX305&quot;                          
+## [79] &quot;Roithner_UVMAX340&quot;                          
+## [80] &quot;Roithner_XSL365&quot;                            
+## [81] &quot;Roithner_XSL370&quot;                            
+## [82] &quot;Roithner_XSL375&quot;                            
+## [83] &quot;Samsung_SPHWHAHDND25YZT3D3&quot;                 
+## [84] &quot;SeoulSemicon_S4SM_1564359736_0B500H3S_00001&quot;
+## [85] &quot;SeoulSemicon_S4SM_1564509736_0B500H3S_00001&quot;
+## [86] &quot;SeoulSemicon_STW9C2SB_S&quot;                    
+## [87] &quot;TaoYuan_LED_310nm&quot;                          
+## [88] &quot;Weili_3W.nominal.500nm&quot;                     
+## [89] &quot;Weili_3W.nominal.525nm&quot;                     
+## [90] &quot;Weili_3W.nominal.550nm&quot;                     
+## [91] &quot;Weili_3W.nominal.555nm&quot;</code></pre>
+<p>We can use a character string as index to extract an individual
+<code>source_spct</code> object.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>leds.mspct<span class="sc">$</span>Roithner_UV395</span></code></pre></div>
+<pre><code>## Object: source_spct [1,335 x 2]
+## Wavelength range 250.05-899.78 nm, step 0.43-7.45 nm 
+## Label: LED type UV395 from Roithner-Laser 
 ## Time unit 1s
-## Spectral data normalized to 1 at 391.03 nm 
+## Spectral data normalized to s.e.irrad = 1 at 391.03 nm (max in 250.05-899.78 nm)
 ## 
-## # A tibble: 1,425 x 2
+## # A tibble: 1,335 × 2
 ##    w.length s.e.irrad
 ##       &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      251         0
-##  3      251         0
-##  4      251         0
-##  5      252         0
-##  6      252         0
-##  7      253         0
-##  8      253         0
-##  9      254         0
-## 10      254         0
-## # ... with 1,415 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leds.mspct[[<span class="st">&quot;UV395&quot;</span>]]</code></pre></div>
-<pre><code>## Object: source_spct [1,425 x 2]
-## Wavelength range 250.05 to 899.78 nm, step 0.43 to 0.48 nm 
-## Label: Measured with spectrometer: MAYP11278 on 2012-05-16 13:47:49
-## processed on 2015-09-06 with MayaCalc ver 3.2.2
-## using HDR: FALSE, using NR: FALSE, method: full
-## calibration dated (automatic): 2012-03-26
-## number of scans, short: 3, long: 0
-## integration times, short (s): 1, long (s): NA
-## total measurement time, short (s): 3, long: NA
-## max counts, short: 49951 out of 65000 (77%): signal O.K. 
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258.         0
+## 10     259.         0
+## # … with 1,325 more rows</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[[<span class="st">&quot;Roithner_UV395&quot;</span>]]</span></code></pre></div>
+<pre><code>## Object: source_spct [1,335 x 2]
+## Wavelength range 250.05-899.78 nm, step 0.43-7.45 nm 
+## Label: LED type UV395 from Roithner-Laser 
 ## Time unit 1s
-## Spectral data normalized to 1 at 391.03 nm 
+## Spectral data normalized to s.e.irrad = 1 at 391.03 nm (max in 250.05-899.78 nm)
 ## 
-## # A tibble: 1,425 x 2
+## # A tibble: 1,335 × 2
 ##    w.length s.e.irrad
 ##       &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      251         0
-##  3      251         0
-##  4      251         0
-##  5      252         0
-##  6      252         0
-##  7      253         0
-##  8      253         0
-##  9      254         0
-## 10      254         0
-## # ... with 1,415 more rows</code></pre>
-<p>Be aware that according to R’s rules, using single square brackets will return a <code>source_mspct</code> object, a collection of spectra, possibly of length one. This statement is not equivalent to the one in the chunk immediately above.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leds.mspct[<span class="st">&quot;UV395&quot;</span>]</code></pre></div>
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258.         0
+## 10     259.         0
+## # … with 1,325 more rows</code></pre>
+<p>Be aware that according to R’s rules, using single square brackets
+will return a <code>source_mspct</code> object, a collection of spectra,
+possibly of length one. This statement is not equivalent to the one in
+the chunk immediately above.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[<span class="st">&quot;Roithner_UV395&quot;</span>]</span></code></pre></div>
 <pre><code>## Object: source_mspct [1 x 1]
-## --- Member: UV395 ---
-## Object: source_spct [1,425 x 2]
-## Wavelength range 250.05 to 899.78 nm, step 0.43 to 0.48 nm 
-## Label: Measured with spectrometer: MAYP11278 on 2012-05-16 13:47:49
-## processed on 2015-09-06 with MayaCalc ver 3.2.2
-## using HDR: FALSE, using NR: FALSE, method: full
-## calibration dated (automatic): 2012-03-26
-## number of scans, short: 3, long: 0
-## integration times, short (s): 1, long (s): NA
-## total measurement time, short (s): 3, long: NA
-## max counts, short: 49951 out of 65000 (77%): signal O.K. 
+## --- Member: Roithner_UV395 ---
+## Object: source_spct [1,335 x 2]
+## Wavelength range 250.05-899.78 nm, step 0.43-7.45 nm 
+## Label: LED type UV395 from Roithner-Laser 
 ## Time unit 1s
-## Spectral data normalized to 1 at 391.03 nm 
+## Spectral data normalized to s.e.irrad = 1 at 391.03 nm (max in 250.05-899.78 nm)
 ## 
-## # A tibble: 1,425 x 2
+## # A tibble: 1,335 × 2
 ##    w.length s.e.irrad
 ##       &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      251         0
-##  3      251         0
-##  4      251         0
-##  5      252         0
-##  6      252         0
-##  7      253         0
-##  8      253         0
-##  9      254         0
-## 10      254         0
-## # ... with 1,415 more rows
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258.         0
+## 10     259.         0
+## # … with 1,325 more rows
 ## 
 ## --- END ---</code></pre>
-<p>Of course, with this syntax it is possible to use a vector of member names.</p>
+<p>Of course, with this syntax it is possible to use a vector of member
+names.</p>
 </div>
 <div id="accessing-subsets-of-spectra" class="section level2">
 <h2>Accessing subsets of spectra</h2>
-<p>We can subset the <code>source_mspct</code> object by indexing with vectors of character strings. The package provides some predefined ones, and users can easily define their own, either as constants or through computation. Here we use a vector defined by the package.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leds.mspct[norlux]</code></pre></div>
+<p>We can subset the <code>source_mspct</code> object by indexing with
+vectors of character strings. The package provides some predefined ones,
+and users can easily define their own, either as constants or through
+computation. Here we use a vector defined by the package.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[Norlux_leds]</span></code></pre></div>
 <pre><code>## Object: source_mspct [4 x 1]
-## --- Member: NHXRGB090_R ---
-## Object: source_spct [1,445 x 2]
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## Label: Norlux 90 die LED array type NHXRGB0905005, red channel 
+## --- Member: Norlux_NHXRGB090S00S_blue ---
+## Object: source_spct [1,235 x 2]
+## Wavelength range 250-900 nm, step 0.43-14.51 nm 
+## Label: 12W RGB LED COB Type NHXRGB090S00S from Norlux 
+## Measured on 2013-11-27 UTC 
 ## Time unit 1s
-## Spectral data normalized to 1 at 643.08 nm 
+## Spectral data normalized to s.e.irrad = 1 at 462.59 nm (max)
 ## 
-## # A tibble: 1,445 x 2
+## # A tibble: 1,235 × 2
 ##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      250         0
-##  3      250         0
-##  4      251         0
-##  5      251         0
-##  6      252         0
-##  7      252         0
-##  8      253         0
-##  9      253         0
-## 10      254         0
-## # ... with 1,435 more rows
-## --- Member: NHXRGB090_G ---
-## Object: source_spct [1,445 x 2]
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## Label: Norlux 90 die LED array type NHXRGB0905005, green channel 
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250          0
+##  2     254.         0
+##  3     255.         0
+##  4     255.         0
+##  5     256.         0
+##  6     256.         0
+##  7     257.         0
+##  8     257.         0
+##  9     258.         0
+## 10     258          0
+## # … with 1,225 more rows
+## --- Member: Norlux_NHXRGB090S00S_green ---
+## Object: source_spct [1,190 x 2]
+## Wavelength range 250-900 nm, step 0.43-14.36 nm 
+## Label: 12W RGB LED COB Type NHXRGB090S00S from Norlux 
+## Measured on 2013-11-27 UTC 
 ## Time unit 1s
-## Spectral data normalized to 1 at 515.52 nm 
+## Spectral data normalized to s.e.irrad = 1 at 515.52 nm (max)
 ## 
-## # A tibble: 1,445 x 2
+## # A tibble: 1,190 × 2
 ##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      250         0
-##  3      250         0
-##  4      251         0
-##  5      251         0
-##  6      252         0
-##  7      252         0
-##  8      253         0
-##  9      253         0
-## 10      254         0
-## # ... with 1,435 more rows
-## --- Member: NHXRGB090_B ---
-## Object: source_spct [1,445 x 2]
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## Label: Norlux 90 die LED array type NHXRGB0905005, blue channel 
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250          0
+##  2     254.         0
+##  3     255.         0
+##  4     255.         0
+##  5     256.         0
+##  6     256.         0
+##  7     257.         0
+##  8     257.         0
+##  9     258.         0
+## 10     258          0
+## # … with 1,180 more rows
+## --- Member: Norlux_NHXRGB090S00S_red ---
+## Object: source_spct [1,282 x 2]
+## Wavelength range 250-900 nm, step 0.43-14.43 nm 
+## Label: 12W RGB LED COB Type NHXRGB090S00S from Norlux 
+## Measured on 2013-11-27 UTC 
 ## Time unit 1s
-## Spectral data normalized to 1 at 462.59 nm 
+## Spectral data normalized to s.e.irrad = 1 at 643.08 nm (max)
 ## 
-## # A tibble: 1,445 x 2
+## # A tibble: 1,282 × 2
 ##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      250         0
-##  3      250         0
-##  4      251         0
-##  5      251         0
-##  6      252         0
-##  7      252         0
-##  8      253         0
-##  9      253         0
-## 10      254         0
-## # ... with 1,435 more rows
-## --- Member: NHXRGB090 ---
-## Object: source_spct [4,335 x 3]
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250          0
+##  2     254.         0
+##  3     255.         0
+##  4     255.         0
+##  5     256.         0
+##  6     256.         0
+##  7     257.         0
+##  8     257.         0
+##  9     258.         0
+## 10     258          0
+## # … with 1,272 more rows
+## --- Member: Norlux_NHXRGB090S00S_RGB ---
+## Object: source_spct [4,323 x 3]
 ## containing 3 spectra in long form
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## R label: Norlux 90 die LED array type NHXRGB0905005, red channel
-## G label: Norlux 90 die LED array type NHXRGB0905005, green channel
-## B label: Norlux 90 die LED array type NHXRGB0905005, blue channel 
-## R measured at NA N, NA E
-## G measured at NA N, NA E
-## B measured at NA N, NA E 
+## Wavelength range 250-900 nm, step 0.01-1.81 nm 
+## Label: 12W RGB LED COB Type NHXRGB090S00S from Norlux 
+## Measured on 2013-11-27 UTC 
 ## Time unit 1s
 ## Spectral data normalized to 1 at TRUE 
 ## 
-## # A tibble: 4,335 x 3
+## # A tibble: 4,323 × 3
 ##    w.length s.e.irrad channel
-##       &lt;dbl&gt;     &lt;dbl&gt; &lt;fctr&gt; 
-##  1      250         0 R      
-##  2      250         0 R      
-##  3      250         0 R      
-##  4      251         0 R      
-##  5      251         0 R      
-##  6      252         0 R      
-##  7      252         0 R      
-##  8      253         0 R      
-##  9      253         0 R      
-## 10      254         0 R      
-## # ... with 4,325 more rows
+##       &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  
+##  1     250          0 R      
+##  2     250.         0 R      
+##  3     250.         0 R      
+##  4     251.         0 R      
+##  5     251.         0 R      
+##  6     252.         0 R      
+##  7     252.         0 R      
+##  8     253.         0 R      
+##  9     253.         0 R      
+## 10     254.         0 R      
+## # … with 4,313 more rows
 ## 
 ## --- END ---</code></pre>
-<p>And below we use a computed one. In this case we extract the member spectra with names containing the string “QDDH”.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leds.mspct[<span class="kw">grep</span>(<span class="st">&quot;QDDH&quot;</span>, <span class="kw">names</span>(leds.mspct))]</code></pre></div>
+<p>And below we use a computed one. In this case we extract the member
+spectra with names containing the string “QDDH”.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[<span class="fu">grep</span>(<span class="st">&quot;QDDH&quot;</span>, <span class="fu">names</span>(leds.mspct))]</span></code></pre></div>
 <pre><code>## Object: source_mspct [4 x 1]
-## --- Member: QDDH66002 ---
-## Object: source_spct [1,445 x 2]
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## Label: LED, type  QDDH66002 
-## Measured on 2016-07-05 10:00:00 UTC 
+## --- Member: QuantumDevices_QDDH66002 ---
+## Object: source_spct [1,267 x 2]
+## Wavelength range 250.01-900 nm, step 0.43-7.19 nm 
+## Label: LED, type: QDDH66002 from Quantum Devices, USA; ca. 1995 
+## Measured on 2011-07-05 10:53:54 UTC 
 ## Time unit 1s
-## Spectral data normalized to 1 at 652.01 nm 
+## Spectral data normalized to s.e.irrad = 1 at 652.01 nm (max)
 ## 
-## # A tibble: 1,445 x 2
+## # A tibble: 1,267 × 2
 ##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250   0      
-##  2      250   0      
-##  3      250   0.00267
-##  4      251   0.00156
-##  5      251   0      
-##  6      252   0      
-##  7      252   0.0105 
-##  8      253   0      
-##  9      253   0      
-## 10      254   0      
-## # ... with 1,435 more rows
-## --- Member: QDDH68002 ---
-## Object: source_spct [1,445 x 2]
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## Label: LED, type  QDDH68002 
-## Measured on 2016-07-05 10:00:00 UTC 
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258          0
+## 10     258.         0
+## # … with 1,257 more rows
+## --- Member: QuantumDevices_QDDH68002 ---
+## Object: source_spct [1,264 x 2]
+## Wavelength range 250.01-900 nm, step 0.43-7.18 nm 
+## Label: LED, type: QDDH68002 from Quantum Devices, USA; ca. 1995 
+## Measured on 2011-07-05 10:50:36 UTC 
 ## Time unit 1s
-## Spectral data normalized to 1 at 673.4 nm 
+## Spectral data normalized to s.e.irrad = 1 at 673.4 nm (max)
 ## 
-## # A tibble: 1,445 x 2
+## # A tibble: 1,264 × 2
 ##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250   0      
-##  2      250   0      
-##  3      250   0      
-##  4      251   0.00603
-##  5      251   0      
-##  6      252   0      
-##  7      252   0.00392
-##  8      253   0      
-##  9      253   0      
-## 10      254   0      
-## # ... with 1,435 more rows
-## --- Member: QDDH70002 ---
-## Object: source_spct [1,445 x 2]
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## Label: LED, type  QDDH70002 
-## Measured on 2016-07-05 10:00:00 UTC 
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258          0
+## 10     258.         0
+## # … with 1,254 more rows
+## --- Member: QuantumDevices_QDDH70002 ---
+## Object: source_spct [1,250 x 2]
+## Wavelength range 250.01-900 nm, step 0.43-7.17 nm 
+## Label: LED, type: QDDH70002 from Quantum Devices, USA; ca. 1995 
+## Measured on 2011-07-05 10:47:28 UTC 
 ## Time unit 1s
-## Spectral data normalized to 1 at 707.13 nm 
+## Spectral data normalized to s.e.irrad = 1 at 707.13 nm (max)
 ## 
-## # A tibble: 1,445 x 2
+## # A tibble: 1,250 × 2
 ##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      250         0
-##  3      250         0
-##  4      251         0
-##  5      251         0
-##  6      252         0
-##  7      252         0
-##  8      253         0
-##  9      253         0
-## 10      254         0
-## # ... with 1,435 more rows
-## --- Member: QDDH73502 ---
-## Object: source_spct [1,445 x 2]
-## Wavelength range 250 to 900 nm, step 0.01 to 0.47 nm 
-## Label: LED, type  QDDH73502 
-## Measured on 2016-07-05 10:00:00 UTC 
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258          0
+## 10     258.         0
+## # … with 1,240 more rows
+## --- Member: QuantumDevices_QDDH73502 ---
+## Object: source_spct [1,256 x 2]
+## Wavelength range 250.01-900 nm, step 0.43-7.13 nm 
+## Label: LED, type: QDDH73502 from Quantum Devices, USA; ca. 1995 
+## Measured on 2011-07-05 10:42:51 UTC 
 ## Time unit 1s
-## Spectral data normalized to 1 at 746.42 nm 
+## Spectral data normalized to s.e.irrad = 1 at 746.42 nm (max)
 ## 
-## # A tibble: 1,445 x 2
+## # A tibble: 1,256 × 2
 ##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250   0.00807
-##  2      250   0.00825
-##  3      250   0      
-##  4      251   0      
-##  5      251   0      
-##  6      252   0      
-##  7      252   0      
-##  8      253   0      
-##  9      253   0      
-## 10      254   0      
-## # ... with 1,435 more rows
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258          0
+## 10     258.         0
+## # … with 1,246 more rows
 ## 
 ## --- END ---</code></pre>
 </div>
 <div id="querying-metadata" class="section level2">
 <h2>Querying metadata</h2>
-<p>If package ‘photobiology’ is loaded then the specialised <code>print()</code> method will be used and a summary of the metadata will be included in the header of the printout.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leds.mspct<span class="op">$</span>LZ1_10R302</code></pre></div>
-<pre><code>## Object: source_spct [1,421 x 2]
-## Wavelength range 251.16 to 898.81 nm, step 0.43 to 0.48 nm 
-## Label: LED Engin type LZ1-10R302, Far red 740 nm
-## Measured at 700 mA, and at 40 mm from cosine diffuser. 
-## Measured on 2017-06-07 16:04:58 UTC 
+<p>If package ‘photobiology’ is loaded then the specialised
+<code>print()</code> method will be used and a summary of the metadata
+will be included in the header of the printout.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm</span></code></pre></div>
+<pre><code>## Object: source_spct [894 x 2]
+## Wavelength range 251.29-900 nm, step 1.023182e-12-7.6 nm 
+## Label: 3W SMD LED type LZ1-10R302 from LED Engin 
+## Measured on 2021-10-09 23:02:03 UTC 
 ## Time unit 1s
+## Spectral data normalized to s.e.irrad = 1 at 729.66 nm (max in 251.29-898.97 nm)
 ## 
-## # A tibble: 1,421 x 2
-##    w.length s.e.irrad
-##  *    &lt;dbl&gt;     &lt;dbl&gt;
-##  1      251   0.00308
-##  2      252   0.00353
-##  3      252   0.00363
-##  4      253   0.00382
-##  5      253   0.00314
-##  6      254   0.00184
-##  7      254   0.00317
-##  8      254   0.00442
-##  9      255   0.00281
-## 10      255   0.00345
-## # ... with 1,411 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getWhatMeasured</span>(leds.mspct<span class="op">$</span>LZ1_10R302)</code></pre></div>
-<pre><code>## [1] &quot;LED Engin type LZ1-10R302, Far red 740 nm\nMeasured at 700 mA, and at 40 mm from cosine diffuser.&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getWhenMeasured</span>(leds.mspct<span class="op">$</span>LZ1_10R302)</code></pre></div>
-<pre><code>## [1] &quot;2017-06-07 16:04:58 UTC&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getInstrDesc</span>(leds.mspct<span class="op">$</span>LZ1_10R302)</code></pre></div>
-<pre><code>## Data acquired with 'MayaPro2000' s.n. MAYP11278
-## grating 'HC1', slit '010s'</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getInstrSettings</span>(leds.mspct<span class="op">$</span>LZ1_10R302)</code></pre></div>
-<pre><code>## integ. time (s): 0.0183, 0.183
-## total time (s): 5.01, 5.12
-## counts @ peak (% of max): 94.1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is_normalized</span>(leds.mspct<span class="op">$</span>LZ1_10R302)</code></pre></div>
-<pre><code>## [1] FALSE</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">leds.mspct<span class="op">$</span>UVMAX305</code></pre></div>
-<pre><code>## Object: source_spct [1,425 x 2]
-## Wavelength range 250.14 to 899.77 nm, step 0.43 to 0.48 nm 
-## Label: UVA LED 310nm Roithner-Laser (SeTi UVCLEAN) type UVMAX305-HL-15 (hemispherical lens), measured at 100 mm distance from cosine difuser 
-## Time unit 1s
-## Spectral data normalized to 1 at 313.14 nm 
-## 
-## # A tibble: 1,425 x 2
+## # A tibble: 894 × 2
 ##    w.length s.e.irrad
 ##       &lt;dbl&gt;     &lt;dbl&gt;
-##  1      250         0
-##  2      251         0
-##  3      251         0
-##  4      252         0
-##  5      252         0
-##  6      253         0
-##  7      253         0
-##  8      253         0
-##  9      254         0
-## 10      254         0
-## # ... with 1,415 more rows</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">is_normalized</span>(leds.mspct<span class="op">$</span>UVMAX305)</code></pre></div>
+##  1     251.         0
+##  2     259.         0
+##  3     266.         0
+##  4     274.         0
+##  5     277.         0
+##  6     277.         0
+##  7     278.         0
+##  8     278.         0
+##  9     279.         0
+## 10     279.         0
+## # … with 884 more rows</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">getWhatMeasured</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm))</span></code></pre></div>
+<pre><code>## 3W SMD LED type LZ1-10R302 from LED Engin</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getWhenMeasured</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm)</span></code></pre></div>
+<pre><code>## [1] &quot;2021-10-09 23:02:03 UTC&quot;</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getInstrDesc</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm)</span></code></pre></div>
+<pre><code>## Data acquired with &#39;MayaPro2000&#39; s.n. MAYP11278
+## grating &#39;HC1&#39;, slit &#39;010s&#39;</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getInstrSettings</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm)</span></code></pre></div>
+<pre><code>## integ. time (s): 0.067, 0.67
+## total time (s): 10.1, 10.1
+## counts @ peak (% of max): 95.9</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_normalized</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>leds.mspct<span class="sc">$</span>Roithner_UVMAX305</span></code></pre></div>
+<pre><code>## Object: source_spct [1,389 x 2]
+## Wavelength range 250.14-899.77 nm, step 0.43-4.76 nm 
+## Label: LED type UVMAX305 from Roithner-Laser 
+## Measured on 2015-02-10 15:34:32 UTC 
+## Time unit 1s
+## Spectral data normalized to s.e.irrad = 1 at 313.14 nm (max in 250.14-899.77 nm)
+## 
+## # A tibble: 1,389 × 2
+##    w.length s.e.irrad
+##       &lt;dbl&gt;     &lt;dbl&gt;
+##  1     250.         0
+##  2     255.         0
+##  3     255.         0
+##  4     256.         0
+##  5     256.         0
+##  6     257.         0
+##  7     257.         0
+##  8     258.         0
+##  9     258.         0
+## 10     259.         0
+## # … with 1,379 more rows</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_normalized</span>(leds.mspct<span class="sc">$</span>Roithner_UVMAX305)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="calculating-summaries-from-the-normalized-data" class="section level2">
 <h2>Calculating summaries from the normalized data</h2>
-<p>Many of the spectra are normalized, and consequently, several summaries expressed in absolute units are undefined, and trigger errors. Summaries like ratios which are not affected by normalization are allowed and valid. The data have been normalized when the measuring conditions used are not well known, and in many cases not well characterized (e.g. distance from LED to cosine diffuser or exact alignment of the spectrometer input optics with respect to light source was not recorded or attempted at the time of measurement).</p>
-<p>What we will do in this section is to rescale the spectral data so that after conversion a given target value for a summary quantity will be true. As an example, we will rescale one spectrum so that it yields an energy irradiance of 10 W m-2 for the range 315 to 400 nm.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.spct &lt;-<span class="st"> </span><span class="kw">fscale</span>(leds.mspct<span class="op">$</span>UV395,
-                  <span class="dt">range =</span> <span class="kw">c</span>(<span class="dv">315</span>, <span class="dv">400</span>),
-                  e_irrad,
-                  <span class="dt">target =</span> <span class="dv">10</span>
-                  )
-<span class="kw">e_irrad</span>(my.spct, <span class="kw">waveband</span>(<span class="kw">c</span>(<span class="dv">315</span>,<span class="dv">400</span>)))</code></pre></div>
-<pre><code>## Warning in irrad_spct(spct, w.band = w.band, unit.out = &quot;energy&quot;, quantity
-## = quantity, : Summarized spectral data have been rescaled</code></pre>
-<pre><code>##  range.315.400 
-##             10 
+<p>Many of the spectra are normalized, and consequently, several
+summaries expressed in absolute units are undefined, and trigger errors.
+Summaries like ratios which are not affected by normalization are
+allowed and valid. The data have been normalized when the measuring
+conditions used are not well known, and in many cases not well
+characterized (e.g. distance from LED to cosine diffuser or exact
+alignment of the spectrometer input optics with respect to light source
+was not recorded or attempted at the time of measurement).</p>
+<p>What we will do in this section is to rescale the spectral data so
+that after conversion a given target value for a summary quantity will
+be true. As an example, we will rescale one spectrum so that it yields
+an energy irradiance of 10 W m-2 for the range 315 to 400 nm.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>my.spct <span class="ot">&lt;-</span> <span class="fu">fscale</span>(leds.mspct<span class="sc">$</span>Roithner_UV395,</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">315</span>, <span class="dv">400</span>),</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>                  e_irrad,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">target =</span> <span class="dv">10</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">e_irrad</span>(my.spct, <span class="fu">waveband</span>(<span class="fu">c</span>(<span class="dv">315</span>,<span class="dv">400</span>)))</span></code></pre></div>
+<pre><code>## E_range.315.400 
+##              10 
 ## attr(,&quot;time.unit&quot;)
 ## [1] &quot;second&quot;
 ## attr(,&quot;radiation.unit&quot;)
-## [1] &quot;energy irradiance total&quot;</code></pre>
-<p>If we want to treat the rescaled spectral data, as if they were true readings with no scaling we can reset the attribute with method <code>setScaled()</code>. With method <code>getScaled()</code> we can test if a spectrum has been scaled.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getScaled</span>(my.spct)</code></pre></div>
-<pre><code>## $multiplier
-## [1] 0.7190004
-## 
-## $f
-## [1] &quot;a user supplied R function&quot;
-## 
-## $range
-## [1] 315 400
-## 
-## $target
-## [1] 10</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">setScaled</span>(my.spct)
-<span class="kw">getScaled</span>(my.spct)</code></pre></div>
+## [1] &quot;total energy irradiance&quot;</code></pre>
+<p>The default of <code>fscale()</code> is to treat rescaled spectral
+data as if they were true readings unless <code>target = 1</code> is
+passed. In this last case, the metadata will be set to indicate that the
+data is in relative units and this will generate a warning during
+computation of irradiance. Other methods such as
+<code>integrate_spct()</code> will still function silently.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>my.spct <span class="ot">&lt;-</span> <span class="fu">fscale</span>(leds.mspct<span class="sc">$</span>Roithner_UV395,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">315</span>, <span class="dv">400</span>),</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                  e_irrad,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">target =</span> <span class="dv">1</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                  )</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">integrate_spct</span>(my.spct)</span></code></pre></div>
+<pre><code>##  e.irrad 
+## 1.157884</code></pre>
+<p>We can reset the attribute with method <code>setScaled()</code>. With
+method <code>getScaled()</code> we can test if a spectrum has been
+scaled.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setScaled</span>(my.spct)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getScaled</span>(my.spct)</span></code></pre></div>
 <pre><code>## [1] FALSE</code></pre>
-<p>If for some obscure reason we want to simply “pretend” that the spectral data have not been normalized, we can permanently override the attribute on a copy of the data. Most of the time this is a very bad idea!</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my.UV395 &lt;-<span class="st"> </span>leds.mspct<span class="op">$</span>UV395
-<span class="kw">setNormalized</span>(my.UV395)
-<span class="kw">e_irrad</span>(my.UV395)</code></pre></div>
-<pre><code>##    Total 
-## 16.10323 
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">e_irrad</span>(my.spct, <span class="fu">waveband</span>(<span class="fu">c</span>(<span class="dv">315</span>,<span class="dv">400</span>)))</span></code></pre></div>
+<pre><code>## E_range.315.400 
+##               1 
 ## attr(,&quot;time.unit&quot;)
 ## [1] &quot;second&quot;
 ## attr(,&quot;radiation.unit&quot;)
-## [1] &quot;energy irradiance total&quot;</code></pre>
-<p>As mentioned above, ratios can be calculated directly as they are not affected by normalization.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">q_ratio</span>(leds.mspct<span class="op">$</span>UV395, <span class="kw">UVB</span>(), <span class="kw">UVA</span>())</code></pre></div>
-<pre><code>##  UVB.ISO: UVA.ISO(q:q) 
-##                      0 
+## [1] &quot;total energy irradiance&quot;</code></pre>
+<p>If for some obscure reason we want to simply “pretend” that the
+spectral data have not been normalized, we can permanently override the
+attribute on a copy of the data. Most of the time this is a very bad
+idea!</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>my.UV395 <span class="ot">&lt;-</span> leds.mspct<span class="sc">$</span>Roithner_UV395</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">setNormalized</span>(my.UV395)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">e_irrad</span>(my.UV395)</span></code></pre></div>
+<pre><code>##  E_Total 
+## 16.10795 
+## attr(,&quot;time.unit&quot;)
+## [1] &quot;second&quot;
+## attr(,&quot;radiation.unit&quot;)
+## [1] &quot;total energy irradiance&quot;</code></pre>
+<p>As mentioned above, ratios can be calculated directly as they are not
+affected by normalization.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">q_ratio</span>(leds.mspct<span class="sc">$</span>Roithner_UV395, <span class="fu">UVB</span>(), <span class="fu">UVA</span>())</span></code></pre></div>
+<pre><code>## UVB:UVA[q:q] 
+##            0 
 ## attr(,&quot;radiation.unit&quot;)
 ## [1] &quot;q:q ratio&quot;</code></pre>
 </div>
 <div id="plotting" class="section level2">
 <h2>Plotting</h2>
-<p>Spectra can be plotted in the same ways as other data stored in data frames, using base R graphics, package ‘lattice’ or ‘ggplot2’. However, another package in our suite, ‘ggspectra’, built as an extension to ‘ggplot2’ makes plotting spectra even easier.</p>
-<p><code>plot()</code> methods use the metadata in the objects to set labels and decorations, as well as automatically setting the mapping of the <em>x</em> and <em>y</em> aesthetics.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(leds.mspct<span class="op">$</span>LZ1_10R302)</code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
-<p>Package ‘ggspectra’ also defines specializations of method <code>ggplot()</code> for spectra.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(leds.mspct<span class="op">$</span>LZ1_10R302) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>Spectra can be plotted in the same ways as other data stored in data
+frames, using base R graphics, package ‘lattice’ or ‘ggplot2’. However,
+another package in our suite, ‘ggspectra’, built as an extension to
+‘ggplot2’ makes plotting spectra even easier.</p>
+<p><code>autoplot()</code> methods use the metadata in the objects to
+set labels and decorations, as well as automatically setting the mapping
+of the <em>x</em> and <em>y</em> aesthetics.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm, <span class="at">annotations =</span> <span class="fu">c</span>(<span class="st">&quot;+&quot;</span>, <span class="st">&quot;wls&quot;</span>), )</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>Package ‘ggspectra’ also defines specializations of method
+<code>ggplot()</code> for spectra.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm) <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="using-the-data-in-other-contexts" class="section level2">
 <h2>Using the data in other contexts</h2>
-<p>As <code>source_spct</code> is a class derived from <code>list</code>, and <code>source_spct</code> is derived from <code>tibble::tible</code> which is a rather compatible reimplementation of <code>data.frame</code> the data can be used very easily with any R function.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(<span class="kw">as.data.frame</span>(leds.mspct<span class="op">$</span>UV395))</code></pre></div>
+<p>As <code>source_spct</code> is a class derived from
+<code>list</code>, and <code>source_spct</code> is derived from
+<code>tibble::tible</code> which is a rather compatible reimplementation
+of <code>data.frame</code> the data can be used very easily with any R
+function.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">as.data.frame</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm))</span></code></pre></div>
 <pre><code>##   w.length s.e.irrad
-## 1   250.05         0
-## 2   250.52         0
-## 3   251.00         0
-## 4   251.47         0
-## 5   251.95         0
-## 6   252.42         0</code></pre>
-<p>Of course <code>attach</code> and <code>with</code> also work as expected.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(leds.mspct)
-<span class="kw">q_ratio</span>(UV395, <span class="kw">UVB</span>(), <span class="kw">UVA</span>())</code></pre></div>
-<pre><code>##  UVB.ISO: UVA.ISO(q:q) 
-##                      0 
+## 1   251.29         0
+## 2   258.88         0
+## 3   266.48         0
+## 4   274.06         0
+## 5   276.91         0
+## 6   277.38         0</code></pre>
+<p>Of course <code>attach</code> and <code>with</code> also work as
+expected.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(leds.mspct)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="fu">q_ratio</span>(Roithner_UV395, <span class="fu">UVB</span>(), <span class="fu">UVA</span>())</span></code></pre></div>
+<pre><code>## UVB:UVA[q:q] 
+##            0 
 ## attr(,&quot;radiation.unit&quot;)
 ## [1] &quot;q:q ratio&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">detach</span>(leds.mspct)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">attach</span>(leds.mspct)
-<span class="kw">with</span>(UV395, <span class="kw">max</span>(w.length))</code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(leds.mspct)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(leds.mspct)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(Roithner_UV395, <span class="fu">max</span>(w.length))</span></code></pre></div>
 <pre><code>## [1] 899.78</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">detach</span>(leds.mspct)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(leds.mspct, <span class="kw">q_ratio</span>(UV395, <span class="kw">UVB</span>(), <span class="kw">UVA</span>()))</code></pre></div>
-<pre><code>##  UVB.ISO: UVA.ISO(q:q) 
-##                      0 
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">detach</span>(leds.mspct)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(leds.mspct, <span class="fu">q_ratio</span>(Roithner_UV395, <span class="fu">UVB</span>(), <span class="fu">UVA</span>()))</span></code></pre></div>
+<pre><code>## UVB:UVA[q:q] 
+##            0 
 ## attr(,&quot;radiation.unit&quot;)
 ## [1] &quot;q:q ratio&quot;</code></pre>
-</div>
-<div id="the-r4photobiology-suite" class="section level2">
-<h2>The R4Photobiology suite</h2>
-<p>This package, is a data only package, part of a suite, which has package ‘photobiology’ at its core. Please visit (<a href="http://www.r4photobiology.info/" class="uri">http://www.r4photobiology.info/</a>) for more details. For more details on plotting spectra, please consult the documentation for package ‘ggspectra’, and for information on the calculation of summaries and maths operations between spectra, please, consult the documentation for package ‘photobiology’.</p>
 </div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
