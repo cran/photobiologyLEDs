@@ -12,7 +12,7 @@
 
 <meta name="author" content="Pedro J. Aphalo" />
 
-<meta name="date" content="2022-05-14" />
+<meta name="date" content="2022-08-13" />
 
 <title>User Guide</title>
 
@@ -333,24 +333,25 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 <h1 class="title toc-ignore">User Guide</h1>
-<h3 class="subtitle">Package ‘photobiologyLEDs’ 0.5.0</h3>
+<h3 class="subtitle">Package ‘photobiologyLEDs’ 0.5.1</h3>
 <h4 class="author">Pedro J. Aphalo</h4>
-<h4 class="date">2022-05-14</h4>
+<h4 class="date">2022-08-13</h4>
 
 
 <div id="TOC">
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#the-data">The data</a></li>
-<li><a href="#accessing-individual-spectra">Accessing individual
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
+<li><a href="#the-data" id="toc-the-data">The data</a></li>
+<li><a href="#accessing-individual-spectra" id="toc-accessing-individual-spectra">Accessing individual
 spectra</a></li>
-<li><a href="#accessing-subsets-of-spectra">Accessing subsets of
+<li><a href="#accessing-subsets-of-spectra" id="toc-accessing-subsets-of-spectra">Accessing subsets of
 spectra</a></li>
-<li><a href="#querying-metadata">Querying metadata</a></li>
-<li><a href="#calculating-summaries-from-the-normalized-data">Calculating
+<li><a href="#querying-metadata" id="toc-querying-metadata">Querying
+metadata</a></li>
+<li><a href="#calculating-summaries-from-the-normalized-data" id="toc-calculating-summaries-from-the-normalized-data">Calculating
 summaries from the normalized data</a></li>
-<li><a href="#plotting">Plotting</a></li>
-<li><a href="#using-the-data-in-other-contexts">Using the data in other
+<li><a href="#plotting" id="toc-plotting">Plotting</a></li>
+<li><a href="#using-the-data-in-other-contexts" id="toc-using-the-data-in-other-contexts">Using the data in other
 contexts</a></li>
 </ul>
 </div>
@@ -490,45 +491,46 @@ listed with method <code>names()</code>.</p>
 ## [50] &quot;Nichia_NFCWL036B_V3_Rfcb0&quot;                  
 ## [51] &quot;Nichia_NFSL757GT_Rsp0a&quot;                     
 ## [52] &quot;Nichia_NFSW757G_Rsp0a&quot;                      
-## [53] &quot;Nichia_NS6L183AT_H1_sw&quot;                     
-## [54] &quot;Nichia_NVSU119C_U385&quot;                       
-## [55] &quot;Nichia_NVSU233B_U365&quot;                       
-## [56] &quot;Nichia_unknown_757&quot;                         
-## [57] &quot;Norlux_NHXRGB090S00S_blue&quot;                  
-## [58] &quot;Norlux_NHXRGB090S00S_green&quot;                 
-## [59] &quot;Norlux_NHXRGB090S00S_red&quot;                   
-## [60] &quot;Norlux_NHXRGB090S00S_RGB&quot;                   
-## [61] &quot;Osram_GF_CSHPM2.24_2T4T_1&quot;                  
-## [62] &quot;Osram_GW_CSSRM3.HW&quot;                         
-## [63] &quot;Osram_LY5436&quot;                               
-## [64] &quot;QuantumDevices_QDDH66002&quot;                   
-## [65] &quot;QuantumDevices_QDDH68002&quot;                   
-## [66] &quot;QuantumDevices_QDDH70002&quot;                   
-## [67] &quot;QuantumDevices_QDDH73502&quot;                   
-## [68] &quot;Roithner_BS436&quot;                             
-## [69] &quot;Roithner_CB30&quot;                              
-## [70] &quot;Roithner_DUV289_SD353EL&quot;                    
-## [71] &quot;Roithner_DUV310_SD353EL&quot;                    
-## [72] &quot;Roithner_DUV325_SD353EL&quot;                    
-## [73] &quot;Roithner_DUV340_SD353EL&quot;                    
-## [74] &quot;Roithner_LED405&quot;                            
-## [75] &quot;Roithner_LED740&quot;                            
-## [76] &quot;Roithner_SMB1N_BB450&quot;                       
-## [77] &quot;Roithner_UV395&quot;                             
-## [78] &quot;Roithner_UVMAX305&quot;                          
-## [79] &quot;Roithner_UVMAX340&quot;                          
-## [80] &quot;Roithner_XSL365&quot;                            
-## [81] &quot;Roithner_XSL370&quot;                            
-## [82] &quot;Roithner_XSL375&quot;                            
-## [83] &quot;Samsung_SPHWHAHDND25YZT3D3&quot;                 
-## [84] &quot;SeoulSemicon_S4SM_1564359736_0B500H3S_00001&quot;
-## [85] &quot;SeoulSemicon_S4SM_1564509736_0B500H3S_00001&quot;
-## [86] &quot;SeoulSemicon_STW9C2SB_S&quot;                    
-## [87] &quot;TaoYuan_LED_310nm&quot;                          
-## [88] &quot;Weili_3W.nominal.500nm&quot;                     
-## [89] &quot;Weili_3W.nominal.525nm&quot;                     
-## [90] &quot;Weili_3W.nominal.550nm&quot;                     
-## [91] &quot;Weili_3W.nominal.555nm&quot;</code></pre>
+## [53] &quot;Nichia_NFSW757G_V3_Rs060&quot;                   
+## [54] &quot;Nichia_NS6L183AT_H1_sw&quot;                     
+## [55] &quot;Nichia_NVSU119C_U385&quot;                       
+## [56] &quot;Nichia_NVSU233B_U365&quot;                       
+## [57] &quot;Nichia_unknown_757&quot;                         
+## [58] &quot;Norlux_NHXRGB090S00S_blue&quot;                  
+## [59] &quot;Norlux_NHXRGB090S00S_green&quot;                 
+## [60] &quot;Norlux_NHXRGB090S00S_red&quot;                   
+## [61] &quot;Norlux_NHXRGB090S00S_RGB&quot;                   
+## [62] &quot;Osram_GF_CSHPM2.24_2T4T_1&quot;                  
+## [63] &quot;Osram_GW_CSSRM3.HW&quot;                         
+## [64] &quot;Osram_LY5436&quot;                               
+## [65] &quot;QuantumDevices_QDDH66002&quot;                   
+## [66] &quot;QuantumDevices_QDDH68002&quot;                   
+## [67] &quot;QuantumDevices_QDDH70002&quot;                   
+## [68] &quot;QuantumDevices_QDDH73502&quot;                   
+## [69] &quot;Roithner_BS436&quot;                             
+## [70] &quot;Roithner_CB30&quot;                              
+## [71] &quot;Roithner_DUV289_SD353EL&quot;                    
+## [72] &quot;Roithner_DUV310_SD353EL&quot;                    
+## [73] &quot;Roithner_DUV325_SD353EL&quot;                    
+## [74] &quot;Roithner_DUV340_SD353EL&quot;                    
+## [75] &quot;Roithner_LED405&quot;                            
+## [76] &quot;Roithner_LED740&quot;                            
+## [77] &quot;Roithner_SMB1N_BB450&quot;                       
+## [78] &quot;Roithner_UV395&quot;                             
+## [79] &quot;Roithner_UVMAX305&quot;                          
+## [80] &quot;Roithner_UVMAX340&quot;                          
+## [81] &quot;Roithner_XSL365&quot;                            
+## [82] &quot;Roithner_XSL370&quot;                            
+## [83] &quot;Roithner_XSL375&quot;                            
+## [84] &quot;Samsung_SPHWHAHDND25YZT3D3&quot;                 
+## [85] &quot;SeoulSemicon_S4SM_1564359736_0B500H3S_00001&quot;
+## [86] &quot;SeoulSemicon_S4SM_1564509736_0B500H3S_00001&quot;
+## [87] &quot;SeoulSemicon_STW9C2SB_S&quot;                    
+## [88] &quot;TaoYuan_LED_310nm&quot;                          
+## [89] &quot;Weili_3W.nominal.500nm&quot;                     
+## [90] &quot;Weili_3W.nominal.525nm&quot;                     
+## [91] &quot;Weili_3W.nominal.550nm&quot;                     
+## [92] &quot;Weili_3W.nominal.555nm&quot;</code></pre>
 <p>We can use a character string as index to extract an individual
 <code>source_spct</code> object.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>leds.mspct<span class="sc">$</span>Roithner_UV395</span></code></pre></div>
@@ -551,7 +553,8 @@ listed with method <code>names()</code>.</p>
 ##  8     258.         0
 ##  9     258.         0
 ## 10     259.         0
-## # … with 1,325 more rows</code></pre>
+## # … with 1,325 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[[<span class="st">&quot;Roithner_UV395&quot;</span>]]</span></code></pre></div>
 <pre><code>## Object: source_spct [1,335 x 2]
 ## Wavelength range 250.05-899.78 nm, step 0.43-7.45 nm 
@@ -572,13 +575,14 @@ listed with method <code>names()</code>.</p>
 ##  8     258.         0
 ##  9     258.         0
 ## 10     259.         0
-## # … with 1,325 more rows</code></pre>
+## # … with 1,325 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>Be aware that according to R’s rules, using single square brackets
 will return a <code>source_mspct</code> object, a collection of spectra,
 possibly of length one. This statement is not equivalent to the one in
 the chunk immediately above.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[<span class="st">&quot;Roithner_UV395&quot;</span>]</span></code></pre></div>
-<pre><code>## Object: source_mspct [1 x 1]
+<pre><code>## Object: source_mspct [1]
 ## --- Member: Roithner_UV395 ---
 ## Object: source_spct [1,335 x 2]
 ## Wavelength range 250.05-899.78 nm, step 0.43-7.45 nm 
@@ -600,6 +604,7 @@ the chunk immediately above.</p>
 ##  9     258.         0
 ## 10     259.         0
 ## # … with 1,325 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## 
 ## --- END ---</code></pre>
 <p>Of course, with this syntax it is possible to use a vector of member
@@ -612,7 +617,7 @@ vectors of character strings. The package provides some predefined ones,
 and users can easily define their own, either as constants or through
 computation. Here we use a vector defined by the package.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[Norlux_leds]</span></code></pre></div>
-<pre><code>## Object: source_mspct [4 x 1]
+<pre><code>## Object: source_mspct [4]
 ## --- Member: Norlux_NHXRGB090S00S_blue ---
 ## Object: source_spct [1,235 x 2]
 ## Wavelength range 250-900 nm, step 0.43-14.51 nm 
@@ -635,6 +640,7 @@ computation. Here we use a vector defined by the package.</p>
 ##  9     258.         0
 ## 10     258          0
 ## # … with 1,225 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## --- Member: Norlux_NHXRGB090S00S_green ---
 ## Object: source_spct [1,190 x 2]
 ## Wavelength range 250-900 nm, step 0.43-14.36 nm 
@@ -657,6 +663,7 @@ computation. Here we use a vector defined by the package.</p>
 ##  9     258.         0
 ## 10     258          0
 ## # … with 1,180 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## --- Member: Norlux_NHXRGB090S00S_red ---
 ## Object: source_spct [1,282 x 2]
 ## Wavelength range 250-900 nm, step 0.43-14.43 nm 
@@ -679,6 +686,7 @@ computation. Here we use a vector defined by the package.</p>
 ##  9     258.         0
 ## 10     258          0
 ## # … with 1,272 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## --- Member: Norlux_NHXRGB090S00S_RGB ---
 ## Object: source_spct [4,323 x 3]
 ## containing 3 spectra in long form
@@ -702,12 +710,13 @@ computation. Here we use a vector defined by the package.</p>
 ##  9     253.         0 R      
 ## 10     254.         0 R      
 ## # … with 4,313 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## 
 ## --- END ---</code></pre>
 <p>And below we use a computed one. In this case we extract the member
 spectra with names containing the string “QDDH”.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>leds.mspct[<span class="fu">grep</span>(<span class="st">&quot;QDDH&quot;</span>, <span class="fu">names</span>(leds.mspct))]</span></code></pre></div>
-<pre><code>## Object: source_mspct [4 x 1]
+<pre><code>## Object: source_mspct [4]
 ## --- Member: QuantumDevices_QDDH66002 ---
 ## Object: source_spct [1,267 x 2]
 ## Wavelength range 250.01-900 nm, step 0.43-7.19 nm 
@@ -730,6 +739,7 @@ spectra with names containing the string “QDDH”.</p>
 ##  9     258          0
 ## 10     258.         0
 ## # … with 1,257 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## --- Member: QuantumDevices_QDDH68002 ---
 ## Object: source_spct [1,264 x 2]
 ## Wavelength range 250.01-900 nm, step 0.43-7.18 nm 
@@ -752,6 +762,7 @@ spectra with names containing the string “QDDH”.</p>
 ##  9     258          0
 ## 10     258.         0
 ## # … with 1,254 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## --- Member: QuantumDevices_QDDH70002 ---
 ## Object: source_spct [1,250 x 2]
 ## Wavelength range 250.01-900 nm, step 0.43-7.17 nm 
@@ -774,6 +785,7 @@ spectra with names containing the string “QDDH”.</p>
 ##  9     258          0
 ## 10     258.         0
 ## # … with 1,240 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## --- Member: QuantumDevices_QDDH73502 ---
 ## Object: source_spct [1,256 x 2]
 ## Wavelength range 250.01-900 nm, step 0.43-7.13 nm 
@@ -796,6 +808,7 @@ spectra with names containing the string “QDDH”.</p>
 ##  9     258          0
 ## 10     258.         0
 ## # … with 1,246 more rows
+## # ℹ Use `print(n = ...)` to see more rows
 ## 
 ## --- END ---</code></pre>
 </div>
@@ -825,7 +838,8 @@ will be included in the header of the printout.</p>
 ##  8     278.         0
 ##  9     279.         0
 ## 10     279.         0
-## # … with 884 more rows</code></pre>
+## # … with 884 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">getWhatMeasured</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm))</span></code></pre></div>
 <pre><code>## 3W SMD LED type LZ1-10R302 from LED Engin</code></pre>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getWhenMeasured</span>(leds.mspct<span class="sc">$</span>LedEngin_LZ1_10R302_740nm)</span></code></pre></div>
@@ -860,7 +874,8 @@ will be included in the header of the printout.</p>
 ##  8     258.         0
 ##  9     258.         0
 ## 10     259.         0
-## # … with 1,379 more rows</code></pre>
+## # … with 1,379 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is_normalized</span>(leds.mspct<span class="sc">$</span>Roithner_UVMAX305)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
